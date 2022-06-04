@@ -6,24 +6,31 @@ div.style.top = `${divY}px`;
 
 let drowActive = false ;
 
-div.addEventListener('mousedown' , () => {
+let insertDivX;
+let insertDivY;
+
+div.addEventListener('mousedown' , (e) => {
     div.style.backgroundColor = "#747d8c"
-    drowActive = true ;
+    drowActive = !drowActive ;
+
+    insertDivX = e.offsetX;
+    insertDivY = e.offsetY;
 })
 
 div.addEventListener('mousemove' , (e) => {
     if (drowActive) {
 
-        divX = e.clientX ;
-        divY = e.clientY ;
 
-        div.style.left = `${divX-100}px`;
-        div.style.top = `${divY-100}px`;
+        divX = e.clientX - insertDivX ;
+        divY = e.clientY - insertDivY ;
+
+        div.style.left = `${divX}px`;
+        div.style.top = `${divY}px`;
     }
 
 })
 
 div.addEventListener('mouseup' , () => {
-    drowActive = false ;
+    drowActive = !drowActive ;
     div.style.backgroundColor = "#000"
 })
