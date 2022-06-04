@@ -5,7 +5,7 @@ div.style.left = `${divX}px`;
 div.style.top = `${divY}px`;
 
 div.addEventListener('mousedown' , () => {
-    console.log("wciśnięte");
+    div.style.backgroundColor = "#747d8c"
 })
 
 div.addEventListener('mousemove' , () => {
@@ -13,5 +13,5 @@ div.addEventListener('mousemove' , () => {
 })
 
 div.addEventListener('mouseup' , () => {
-    console.log("puszczone");
+    div.style.backgroundColor = "#000"
 })
